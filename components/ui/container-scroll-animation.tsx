@@ -36,7 +36,7 @@ export const ContainerScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100])
 
   return (
-    <div ref={containerRef} className="relative h-[200vh] sm:h-[250vh] md:h-[300vh]">
+    <div ref={containerRef} className="relative h-[250vh] md:h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-4 md:px-16">
         <div
           className="relative w-full py-10 md:py-24"

@@ -60,7 +60,7 @@ export function ScrollShowcase() {
   const contentY = useTransform(scrollYProgress, [0.2, 0.55], [30, 0])
 
   return (
-    <section ref={containerRef} className="relative h-[250vh] sm:h-[350vh] md:h-[450vh]">
+    <section ref={containerRef} className="relative h-[350vh] md:h-[450vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-[#111]">
 
         {/* ============ CONTENT BEHIND THE DOOR ============ */}
@@ -83,7 +83,7 @@ export function ScrollShowcase() {
             </div>
 
             {/* Image grid */}
-            <div className="grid grid-cols-3 gap-2 lg:gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:gap-3">
               {showcaseItems.map((item, i) => (
                 <button
                   key={item.title}
