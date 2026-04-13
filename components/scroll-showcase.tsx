@@ -59,7 +59,7 @@ export function ScrollShowcase() {
   const contentOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
 
   return (
-    <section ref={containerRef} className="relative h-[350vh] md:h-[450vh]">
+    <section ref={containerRef} className="relative h-[280vh] sm:h-[350vh] md:h-[450vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-[#111]">
 
         {/* ============ CONTENT BEHIND THE DOOR ============ */}
@@ -109,7 +109,7 @@ export function ScrollShowcase() {
             </div>
 
             {/* Stats */}
-            <div className="mx-auto mt-6 grid max-w-2xl grid-cols-4 rounded-xl border border-white/5 bg-white/[0.02] py-4">
+            <div className="mx-auto mt-6 grid max-w-2xl grid-cols-2 rounded-xl border border-white/5 bg-white/[0.02] py-4 sm:grid-cols-4">
               {[
                 { value: "170+", label: "Cobras" },
                 { value: "30+", label: "Jahre" },

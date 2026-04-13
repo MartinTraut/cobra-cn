@@ -41,7 +41,7 @@ export const ContainerScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -50 : -100])
 
   return (
-    <div ref={containerRef} className="relative h-[180vh] md:h-[300vh]">
+    <div ref={containerRef} className="relative h-[160vh] sm:h-[200vh] md:h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-4 md:px-16">
         <div
           className="relative w-full py-10 md:py-24"
@@ -96,7 +96,7 @@ export const Card = ({
           ? "0 4px 20px rgba(0,0,0,0.4)"
           : "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="-mt-12 mx-auto h-[30rem] w-full max-w-5xl overflow-hidden rounded-2xl border border-white/15 bg-cn-darker shadow-2xl md:h-[40rem] md:rounded-3xl"
+      className="-mt-6 mx-auto h-[24rem] w-full max-w-5xl overflow-hidden rounded-xl border border-white/15 bg-cn-darker shadow-2xl sm:h-[30rem] md:-mt-12 md:h-[40rem] md:rounded-3xl"
     >
       <div className="h-full w-full overflow-hidden">{children}</div>
     </motion.div>

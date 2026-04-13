@@ -24,49 +24,50 @@ export function ShopSection() {
       <ContainerScroll
         titleComponent={
           <div className="flex flex-col items-center">
-            <span className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
+            <span className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cn-red sm:mb-3 sm:text-xs">
               Online Shop
             </span>
-            <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
               Premium-Teile
             </h2>
-            <h2 className="text-4xl font-bold tracking-tight text-cn-red md:text-5xl lg:text-6xl">
+            <h2 className="text-2xl font-bold tracking-tight text-cn-red sm:text-4xl md:text-5xl lg:text-6xl">
               für Ihr Fahrzeug.
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-sm text-cn-gray md:text-base">
+            <p className="mx-auto mt-2 max-w-lg text-xs text-cn-gray sm:mt-4 sm:text-sm md:text-base">
               Hochleistungskomponenten für Corvette C8, Camaro und Cobra.
-              Direkt aus dem Motorsport.
             </p>
           </div>
         }
       >
         <div className="flex h-full w-full flex-col bg-cn-darker">
           {/* Top bar */}
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-3 md:px-8">
+          <div className="flex items-center justify-between border-b border-white/10 px-3 py-2 sm:px-5 sm:py-3 md:px-8">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="size-4 text-cn-red" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-white">
+              <ShoppingBag className="size-3.5 text-cn-red sm:size-4" />
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-white sm:text-xs">
                 Beliebte Produkte
               </span>
             </div>
             <Link
               href="/shop"
-              className="group flex items-center gap-1.5 text-xs font-medium text-cn-red hover:text-cn-red-light"
+              className="group flex items-center gap-1.5 text-[10px] font-medium text-cn-red hover:text-cn-red-light sm:text-xs"
             >
               Alle im Shop
               <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          {/* Products — NO filters, NO overlays */}
-          <div className="grid flex-1 grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2">
+          {/* Products */}
+          <div className="grid flex-1 grid-cols-2 md:grid-cols-4">
             {products.map((product, i) => (
               <Link
                 key={product.slug}
                 href={`/shop/produkt/${product.slug}`}
                 className={`group flex flex-col border-white/10 transition-colors hover:bg-white/[0.04] ${
-                  i % 2 !== 1 ? "border-r md:border-r-0" : ""
-                } ${i % 4 !== 3 ? "md:border-r" : ""} ${i < 6 ? "border-b md:border-b-0" : ""} ${i < 4 ? "md:border-b" : ""}`}
+                  i % 2 !== 1 ? "border-r" : ""
+                } ${i < 6 ? "border-b" : ""} ${
+                  i >= 4 ? "hidden md:flex" : ""
+                }`}
               >
                 <div className="relative flex-1 overflow-hidden">
                   <Image
@@ -74,28 +75,28 @@ export function ShopSection() {
                     alt={product.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="25vw"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     quality={80}
                   />
                   {product.originalPrice && (
-                    <span className="absolute right-2 top-2 rounded bg-cn-red px-1.5 py-0.5 text-[8px] font-bold text-white">
+                    <span className="absolute right-1.5 top-1.5 rounded bg-cn-red px-1 py-0.5 text-[7px] font-bold text-white sm:right-2 sm:top-2 sm:px-1.5 sm:text-[8px]">
                       SALE
                     </span>
                   )}
                 </div>
-                <div className="border-t border-white/10 p-3 md:p-4">
-                  <span className="text-[9px] font-semibold uppercase tracking-wider text-cn-red">
+                <div className="border-t border-white/10 p-2 sm:p-3 md:p-4">
+                  <span className="text-[8px] font-semibold uppercase tracking-wider text-cn-red sm:text-[9px]">
                     {product.category}
                   </span>
-                  <h3 className="mt-0.5 text-[11px] font-bold leading-snug text-white md:text-xs">
+                  <h3 className="mt-0.5 text-[10px] font-bold leading-snug text-white sm:text-[11px] md:text-xs">
                     {product.name}
                   </h3>
-                  <div className="mt-2 flex items-center justify-between">
-                    <span className="text-xs font-bold text-white md:text-sm">
+                  <div className="mt-1 flex items-center justify-between sm:mt-2">
+                    <span className="text-[10px] font-bold text-white sm:text-xs md:text-sm">
                       {product.price}
                     </span>
-                    <div className="flex size-6 items-center justify-center rounded-md bg-cn-red/10 transition-colors group-hover:bg-cn-red">
-                      <ShoppingBag className="size-3 text-cn-red transition-colors group-hover:text-white" />
+                    <div className="flex size-5 items-center justify-center rounded-md bg-cn-red/10 transition-colors group-hover:bg-cn-red sm:size-6">
+                      <ShoppingBag className="size-2.5 text-cn-red transition-colors group-hover:text-white sm:size-3" />
                     </div>
                   </div>
                 </div>
@@ -104,13 +105,13 @@ export function ShopSection() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="flex items-center justify-center border-t border-white/10 py-3">
+          <div className="flex items-center justify-center border-t border-white/10 py-2 sm:py-3">
             <Link
               href="/shop"
-              className="group inline-flex items-center gap-2 rounded-full bg-cn-red px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-cn-red-light hover:shadow-lg hover:shadow-cn-red/20"
+              className="group inline-flex items-center gap-2 rounded-full bg-cn-red px-4 py-2 text-[10px] font-semibold uppercase tracking-wider text-white transition-all hover:bg-cn-red-light hover:shadow-lg hover:shadow-cn-red/20 sm:px-6 sm:py-2.5 sm:text-xs"
             >
               Alle Produkte im Shop
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="size-3 transition-transform group-hover:translate-x-1 sm:size-3.5" />
             </Link>
           </div>
         </div>
