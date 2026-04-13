@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -8,14 +8,24 @@ import { ChevronDown, ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   const containerRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200])
+  // Mobile: no parallax scale, reduced y movement
+  const y = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 60 : 200])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1 : 1.1])
 
   const handleScroll = (href: string) => {
     const el = document.querySelector(href)
@@ -32,7 +42,10 @@ export function HeroSection() {
       className="relative flex h-screen overflow-hidden"
     >
       {/* Background Image with Parallax */}
-      <motion.div className="absolute inset-0" style={{ y, scale }}>
+      <motion.div
+        className="absolute inset-0"
+        style={{ y, scale, willChange: "transform" }}
+      >
         <Image
           src="https://www.cobra-cn.de/wp-content/uploads/2022/11/racetracker_19894361_313124-scaled.jpg"
           alt="CN Racing Corvette auf der Rennstrecke"
@@ -40,7 +53,7 @@ export function HeroSection() {
           priority
           className="object-cover"
           sizes="100vw"
-          quality={95}
+          quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-cn-darker via-transparent to-black/30" />
@@ -63,7 +76,7 @@ export function HeroSection() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-cn-red/30 bg-cn-red/10 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-cn-red-light sm:mb-6 sm:px-4 sm:py-1.5 sm:text-xs"
           >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cn-red" />
+            <span className="h-1.5 w-1.5 rounded-full bg-cn-red animate-[pulse_2s_ease-in-out_infinite]" />
             Seit über 30 Jahren Motorsport-Exzellenz
           </motion.div>
 
@@ -140,16 +153,14 @@ export function HeroSection() {
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.button
+      {/* Scroll Indicator - pure CSS animation instead of JS */}
+      <button
         onClick={() => handleScroll("#fahrzeuge")}
-        className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 sm:bottom-8"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 animate-bounce sm:bottom-8"
         aria-label="Nach unten scrollen"
       >
         <ChevronDown className="size-5 text-white/40 sm:size-6" />
-      </motion.button>
+      </button>
     </section>
   )
 }

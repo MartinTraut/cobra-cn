@@ -27,23 +27,28 @@ export const ContainerScroll = ({
     }
   }, [])
 
-  const rotate = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [70, 30, 5, 0])
+  // Mobile: no rotateX (GPU heavy), simpler scale
+  const rotate = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.8, 1],
+    isMobile ? [20, 8, 2, 0] : [70, 30, 5, 0]
+  )
   const scale = useTransform(
     scrollYProgress,
     [0, 0.4, 0.8, 1],
-    isMobile ? [0.5, 0.7, 0.9, 0.95] : [0.6, 0.8, 0.95, 1]
+    isMobile ? [0.7, 0.85, 0.95, 1] : [0.6, 0.8, 0.95, 1]
   )
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const translate = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -50 : -100])
 
   return (
-    <div ref={containerRef} className="relative h-[250vh] md:h-[300vh]">
+    <div ref={containerRef} className="relative h-[180vh] md:h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-4 md:px-16">
         <div
           className="relative w-full py-10 md:py-24"
-          style={{ perspective: "1000px" }}
+          style={isMobile ? undefined : { perspective: "1000px" }}
         >
           <Header translate={translate} titleComponent={titleComponent} />
-          <Card rotate={rotate} translate={translate} scale={scale}>
+          <Card rotate={rotate} translate={translate} scale={scale} isMobile={isMobile}>
             {children}
           </Card>
         </div>
@@ -61,7 +66,7 @@ export const Header = ({
 }) => {
   return (
     <motion.div
-      style={{ translateY: translate }}
+      style={{ translateY: translate, willChange: "transform" }}
       className="mx-auto max-w-5xl text-center"
     >
       {titleComponent}
@@ -72,11 +77,13 @@ export const Header = ({
 export const Card = ({
   rotate,
   scale,
+  isMobile,
   children,
 }: {
   rotate: MotionValue<number>
   scale: MotionValue<number>
   translate: MotionValue<number>
+  isMobile?: boolean
   children: React.ReactNode
 }) => {
   return (
@@ -84,8 +91,10 @@ export const Card = ({
       style={{
         rotateX: rotate,
         scale,
-        boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+        willChange: "transform",
+        boxShadow: isMobile
+          ? "0 4px 20px rgba(0,0,0,0.4)"
+          : "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
       className="-mt-12 mx-auto h-[30rem] w-full max-w-5xl overflow-hidden rounded-2xl border border-white/15 bg-cn-darker shadow-2xl md:h-[40rem] md:rounded-3xl"
     >

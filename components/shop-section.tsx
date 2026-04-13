@@ -75,8 +75,7 @@ export function ShopSection() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="25vw"
-                    quality={95}
-                    unoptimized
+                    quality={80}
                   />
                   {product.originalPrice && (
                     <span className="absolute right-2 top-2 rounded bg-cn-red px-1.5 py-0.5 text-[8px] font-bold text-white">

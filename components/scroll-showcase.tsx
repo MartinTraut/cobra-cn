@@ -57,7 +57,6 @@ export function ScrollShowcase() {
 
   const doorY = useTransform(scrollYProgress, [0, 0.7], ["0%", "-100%"])
   const contentOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
-  const contentY = useTransform(scrollYProgress, [0.2, 0.55], [30, 0])
 
   return (
     <section ref={containerRef} className="relative h-[350vh] md:h-[450vh]">
@@ -66,7 +65,7 @@ export function ScrollShowcase() {
         {/* ============ CONTENT BEHIND THE DOOR ============ */}
         <motion.div
           className="absolute inset-0 z-10 overflow-y-auto bg-[#111] px-5 pb-8 pt-20 lg:pt-24"
-          style={{ opacity: contentOpacity, y: contentY }}
+          style={{ opacity: contentOpacity }}
         >
           <div className="mx-auto w-full max-w-6xl">
             {/* Header */}
@@ -152,10 +151,8 @@ export function ScrollShowcase() {
               <p className="mt-4 max-w-md text-center text-sm text-cn-gray md:text-base">
                 Scrollen Sie, um unsere Werkstatt zu betreten.
               </p>
-              <motion.div
-                className="mt-8 h-8 w-px bg-gradient-to-b from-transparent via-cn-red to-transparent"
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <div
+                className="mt-8 h-8 w-px animate-bounce bg-gradient-to-b from-transparent via-cn-red to-transparent"
               />
             </div>
             <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-white/[0.06] to-transparent" />
@@ -168,7 +165,7 @@ export function ScrollShowcase() {
       <AnimatePresence>
         {selectedItem !== null && showcaseItems[selectedItem] && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
