@@ -113,6 +113,11 @@ html {
   html {
     @apply font-sans;
   }
+  h1, h2, h3, h4 {
+    font-variant-ligatures: none;
+    text-rendering: geometricPrecision;
+    letter-spacing: -0.01em;
+  }
 }
 
 ::selection {

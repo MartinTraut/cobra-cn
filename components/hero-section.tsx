@@ -22,7 +22,6 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   })
 
-  // Mobile: no parallax scale, reduced y movement
   const y = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 60 : 200])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1 : 1.1])
@@ -41,7 +40,7 @@ export function HeroSection() {
       ref={containerRef}
       className="relative flex h-screen overflow-hidden"
     >
-      {/* Background Image with Parallax */}
+      {/* Background */}
       <motion.div
         className="absolute inset-0"
         style={{ y, scale, willChange: "transform" }}
@@ -59,22 +58,22 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-cn-darker via-transparent to-black/30" />
       </motion.div>
 
-      {/* Red accent glow */}
       <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-cn-red/10 blur-[120px]" />
 
-      {/* Content - split top/bottom */}
+      {/* Content */}
       <motion.div
-        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-20 pt-24 sm:px-5 sm:pb-24 sm:pt-32 lg:px-8 lg:pt-36"
+        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-10 pt-28 sm:px-8 sm:pb-16 sm:pt-36 lg:px-10 lg:pb-20 lg:pt-40"
         style={{ opacity }}
       >
-        {/* TOP: Badge + Headline + Description */}
+        {/* ── TOP BLOCK: Badge → Headline → Description ── */}
         <div className="max-w-3xl">
+
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-cn-red/30 bg-cn-red/10 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-cn-red-light sm:mb-6 sm:px-4 sm:py-1.5 sm:text-xs"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-cn-red/30 bg-cn-red/10 px-3.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-cn-red-light sm:mb-7 sm:px-4 sm:py-1.5 sm:text-[11px] lg:mb-8"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-cn-red animate-[pulse_2s_ease-in-out_infinite]" />
             Seit über 30 Jahren Motorsport-Exzellenz
@@ -82,8 +81,13 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            className="mb-3 text-[2.5rem] font-bold leading-[1.05] tracking-[0.02em] text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-            style={{ fontVariantLigatures: "none", fontKerning: "none" }}
+            className="mb-5 font-bold text-white sm:mb-7 lg:mb-8"
+            style={{
+              fontVariantLigatures: "none",
+              fontSize: "clamp(2.25rem, 6vw, 7rem)",
+              lineHeight: 1.08,
+              letterSpacing: "-0.01em",
+            }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -93,73 +97,80 @@ export function HeroSection() {
             <span className="text-gradient">Perfekte Technik.</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Description */}
           <motion.p
-            className="max-w-md text-sm leading-loose text-white/60 sm:max-w-xl sm:text-lg md:text-xl"
+            className="max-w-md text-[15px] leading-[1.7] text-white/55 sm:max-w-lg sm:text-base lg:max-w-xl lg:text-lg lg:leading-[1.75]"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.35 }}
           >
             CN Racing GmbH – Ihr Spezialist für Corvette, Camaro und
-            Cobra Tuning. Motorsport-Technologie für die Straße, handgefertigt
-            in Dormagen.
+            Cobra-Tuning. Motorsport-Technologie für die Straße,
+            handgefertigt in Dormagen.
           </motion.p>
         </div>
 
-        {/* BOTTOM: CTAs + Stats */}
+        {/* ── BOTTOM BLOCK: CTAs → Divider → Stats → Scroll ── */}
         <div>
+
           {/* CTAs */}
           <motion.div
-            className="mb-6 flex items-center gap-3 sm:mb-8 sm:gap-4"
+            className="flex items-center gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.45 }}
           >
             <Link
               href="/fahrzeuge/cobra"
-              className="group flex items-center justify-center gap-2 rounded-full bg-cn-red px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-cn-red-light hover:shadow-xl hover:shadow-cn-red/25 sm:px-8 sm:py-4 sm:text-sm"
+              className="group inline-flex items-center gap-2 rounded-full bg-cn-red px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-cn-red-light hover:shadow-xl hover:shadow-cn-red/25 sm:px-8 sm:py-3.5 sm:text-xs"
             >
               Entdecken
-              <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1 sm:size-4" />
+              <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="/kontakt"
-              className="group flex items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 sm:px-8 sm:py-4 sm:text-sm"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 sm:px-8 sm:py-3.5 sm:text-xs"
             >
               Kontakt
             </Link>
           </motion.div>
 
-          {/* Stats */}
+          {/* Divider + Stats */}
           <motion.div
-            className="border-t border-white/10 pt-5 sm:pt-8"
+            className="mt-7 border-t border-white/10 pt-6 sm:mt-9 sm:pt-7 lg:mt-10 lg:pt-8"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.55 }}
           >
-            <div className="flex items-start justify-between">
+            <div className="flex justify-between">
               {[
-                { value: "30+", label: "Jahre" },
-                { value: "170+", label: "Cobras" },
+                { value: "30+", label: "Jahre Erfahrung" },
+                { value: "170+", label: "Cobras gebaut" },
                 { value: "1500", label: "PS Prüfstand" },
-                { value: "900", label: "PS RS6" },
+                { value: "900", label: "PS Cobra RS6" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-xl font-bold text-white sm:text-3xl lg:text-4xl">
+                  <div
+                    className="font-bold text-white"
+                    style={{ fontSize: "clamp(1.25rem, 2.5vw, 2.5rem)" }}
+                  >
                     {stat.value}
                   </div>
-                  <div className="mt-0.5 text-[8px] uppercase tracking-wider text-white/40 sm:mt-1 sm:text-xs sm:normal-case sm:tracking-normal">{stat.label}</div>
+                  <div className="mt-1 text-[7px] uppercase tracking-[0.14em] text-white/35 sm:text-[10px] lg:text-xs lg:tracking-[0.08em]">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
-            {/* Scroll Indicator - centered below stats */}
-            <div className="mt-4 flex justify-center sm:mt-6">
+
+            {/* Scroll indicator */}
+            <div className="mt-5 flex justify-center sm:mt-7">
               <button
                 onClick={() => handleScroll("#fahrzeuge")}
                 className="animate-bounce"
                 aria-label="Nach unten scrollen"
               >
-                <ChevronDown className="size-5 text-white/40 sm:size-6" />
+                <ChevronDown className="size-4 text-white/30 sm:size-5" />
               </button>
             </div>
           </motion.div>
