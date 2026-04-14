@@ -101,7 +101,7 @@ export function PhilosophieSection() {
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
                 Unsere Philosophie
               </span>
-              <h2 className="mb-6 text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <h2 className="mb-6 text-4xl font-bold tracking-normal text-white lg:text-5xl">
                 Leidenschaft trifft
                 <br />
                 Ingenieurskunst.

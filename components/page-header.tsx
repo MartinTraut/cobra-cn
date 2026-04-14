@@ -91,7 +91,7 @@ export function PageHeader({
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
             {tag}
           </span>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white lg:text-6xl">
+          <h1 className="mb-4 text-4xl font-bold tracking-normal text-white lg:text-6xl">
             {title}
             {titleAccent && (
               <>

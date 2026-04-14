@@ -90,7 +90,7 @@ export function FahrzeugeSection() {
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
               Unsere Fahrzeuge
             </span>
-            <h2 className="mb-4 text-4xl font-bold tracking-tight text-white lg:text-5xl">
+            <h2 className="mb-4 text-4xl font-bold tracking-normal text-white lg:text-5xl">
               Drei Legenden.
               <br />
               Ein Standard: Perfektion.
@@ -163,7 +163,7 @@ export function FahrzeugeSection() {
                 <span className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
                   {vehicle.subtitle}
                 </span>
-                <h3 className="mb-4 text-3xl font-bold tracking-tight text-white lg:text-4xl">
+                <h3 className="mb-4 text-3xl font-bold tracking-normal text-white lg:text-4xl">
                   {vehicle.name}
                 </h3>
                 <p className="mb-8 leading-relaxed text-cn-gray">

@@ -95,7 +95,7 @@ export function CobraDetailPage(props: CobraDetailProps) {
                 key={stat.label}
                 className={`px-4 py-6 text-center ${i > 0 ? "border-l border-cn-red/10" : ""}`}
               >
-                <div className="text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-3xl">
+                <div className="text-xl font-bold tracking-normal text-white sm:text-2xl lg:text-3xl">
                   {stat.value}
                 </div>
                 <div className="mt-1 text-[10px] uppercase tracking-widest text-cn-red sm:text-xs">
@@ -114,7 +114,7 @@ export function CobraDetailPage(props: CobraDetailProps) {
             <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
               Galerie
             </span>
-            <h2 className="text-2xl font-bold tracking-tight text-white">
+            <h2 className="text-2xl font-bold tracking-normal text-white">
               CN-Cobra {props.model} im Detail
             </h2>
           </div>
@@ -170,7 +170,7 @@ export function CobraDetailPage(props: CobraDetailProps) {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <ScrollReveal>
-                <h2 className="mb-2 text-3xl font-bold tracking-tight text-white">
+                <h2 className="mb-2 text-3xl font-bold tracking-normal text-white">
                   Technische Daten
                 </h2>
                 <p className="mb-8 text-cn-gray">
@@ -195,7 +195,7 @@ export function CobraDetailPage(props: CobraDetailProps) {
 
             <div>
               <ScrollReveal delay={0.1}>
-                <h2 className="mb-2 text-3xl font-bold tracking-tight text-white">
+                <h2 className="mb-2 text-3xl font-bold tracking-normal text-white">
                   Serienausstattung
                 </h2>
                 <p className="mb-8 text-cn-gray">

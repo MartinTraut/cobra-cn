@@ -73,7 +73,7 @@ export function ScrollShowcase() {
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
                 Unsere Werkstatt
               </span>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <h2 className="mt-2 text-3xl font-bold tracking-normal text-white md:text-4xl">
                 Entdecken Sie unsere <span className="text-cn-red">Fahrzeuge.</span>
               </h2>
               <p className="mx-auto mt-2 max-w-md text-sm text-cn-gray">
@@ -142,10 +142,10 @@ export function ScrollShowcase() {
               <span className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cn-red">
                 Motorsport-Technologie für die Straße
               </span>
-              <h2 className="text-center text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+              <h2 className="text-center text-4xl font-bold tracking-normal text-white md:text-6xl lg:text-7xl">
                 Über 30 Jahre
               </h2>
-              <h2 className="text-center text-4xl font-bold tracking-tight text-cn-red md:text-6xl lg:text-7xl">
+              <h2 className="text-center text-4xl font-bold tracking-normal text-cn-red md:text-6xl lg:text-7xl">
                 Leidenschaft.
               </h2>
               <p className="mt-4 max-w-md text-center text-sm text-cn-gray md:text-base">

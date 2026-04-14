@@ -16,7 +16,7 @@ export function KarriereSection() {
               <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
                 Karriere
               </span>
-              <h2 className="mb-6 text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <h2 className="mb-6 text-4xl font-bold tracking-normal text-white lg:text-5xl">
                 Werde Teil
                 <br />
                 unseres Teams.

@@ -58,7 +58,7 @@ export function MotorsportSection() {
 
       {/* Large background text */}
       <motion.div
-        className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[15vw] font-black uppercase leading-none tracking-tighter text-white/[0.02]"
+        className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[15vw] font-black uppercase leading-none tracking-normaler text-white/[0.02]"
         style={{ x }}
       >
         MOTORSPORT · RACING · SPEED ·
@@ -71,7 +71,7 @@ export function MotorsportSection() {
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cn-red">
               Motorsport
             </span>
-            <h2 className="mb-4 text-4xl font-bold tracking-tight text-white lg:text-5xl">
+            <h2 className="mb-4 text-4xl font-bold tracking-normal text-white lg:text-5xl">
               Vom Rennsport
               <br />
               auf die Straße.

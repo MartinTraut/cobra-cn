@@ -27,10 +27,10 @@ export function ShopSection() {
             <span className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cn-red sm:mb-3 sm:text-xs">
               Online Shop
             </span>
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="text-2xl font-bold tracking-normal text-white sm:text-4xl md:text-5xl lg:text-6xl">
               Premium-Teile
             </h2>
-            <h2 className="text-2xl font-bold tracking-tight text-cn-red sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="text-2xl font-bold tracking-normal text-cn-red sm:text-4xl md:text-5xl lg:text-6xl">
               für Ihr Fahrzeug.
             </h2>
             <p className="mx-auto mt-2 max-w-lg text-xs text-cn-gray sm:mt-4 sm:text-sm md:text-base">

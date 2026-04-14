@@ -82,7 +82,7 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            className="mb-3 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+            className="mb-3 text-[2.5rem] font-bold leading-[1.05] tracking-wide text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -94,7 +94,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            className="max-w-md text-sm leading-relaxed text-white/60 sm:max-w-xl sm:text-lg md:text-xl"
+            className="max-w-md text-sm leading-loose text-white/60 sm:max-w-xl sm:text-lg md:text-xl"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.35 }}
@@ -109,7 +109,7 @@ export function HeroSection() {
         <div>
           {/* CTAs */}
           <motion.div
-            className="flex items-center gap-3 sm:gap-4"
+            className="mb-6 flex items-center gap-3 sm:mb-8 sm:gap-4"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.45 }}
@@ -143,7 +143,7 @@ export function HeroSection() {
               { value: "900", label: "PS RS6" },
             ].map((stat) => (
               <div key={stat.label} className="text-center sm:text-left">
-                <div className="text-xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+                <div className="text-xl font-bold tracking-normal text-white sm:text-3xl lg:text-4xl">
                   {stat.value}
                 </div>
                 <div className="mt-0.5 text-[8px] uppercase tracking-wider text-white/40 sm:mt-1 sm:text-xs sm:normal-case sm:tracking-normal">{stat.label}</div>
