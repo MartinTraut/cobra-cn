@@ -62,18 +62,17 @@ export function HeroSection() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-10 pt-28 sm:px-8 sm:pb-16 sm:pt-36 lg:px-10 lg:pb-20 lg:pt-40"
+        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-12 pt-28 sm:px-8 sm:pb-16 sm:pt-32 lg:px-10 lg:pb-20 lg:pt-36"
         style={{ opacity }}
       >
-        {/* ── TOP BLOCK: Badge → Headline → Description ── */}
+        {/* TOP */}
         <div className="max-w-3xl">
-
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-cn-red/30 bg-cn-red/10 px-3.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-cn-red-light sm:mb-7 sm:px-4 sm:py-1.5 sm:text-[11px] lg:mb-8"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-cn-red/30 bg-cn-red/10 px-3.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-cn-red-light sm:mb-6 sm:px-4 sm:py-1.5 sm:text-[11px]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-cn-red animate-[pulse_2s_ease-in-out_infinite]" />
             Seit über 30 Jahren Motorsport-Exzellenz
@@ -81,13 +80,7 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            className="mb-5 font-bold text-white sm:mb-7 lg:mb-8"
-            style={{
-              fontVariantLigatures: "none",
-              fontSize: "clamp(2.25rem, 6vw, 7rem)",
-              lineHeight: 1.08,
-              letterSpacing: "-0.01em",
-            }}
+            className="mb-5 text-4xl font-bold leading-[1.08] text-white sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -99,7 +92,7 @@ export function HeroSection() {
 
           {/* Description */}
           <motion.p
-            className="max-w-md text-[15px] leading-[1.7] text-white/55 sm:max-w-lg sm:text-base lg:max-w-xl lg:text-lg lg:leading-[1.75]"
+            className="max-w-md text-[15px] leading-relaxed text-white/55 sm:max-w-lg sm:text-base lg:max-w-xl lg:text-lg"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.35 }}
@@ -110,9 +103,8 @@ export function HeroSection() {
           </motion.p>
         </div>
 
-        {/* ── BOTTOM BLOCK: CTAs → Divider → Stats → Scroll ── */}
+        {/* BOTTOM */}
         <div>
-
           {/* CTAs */}
           <motion.div
             className="flex items-center gap-3 sm:gap-4"
@@ -122,14 +114,14 @@ export function HeroSection() {
           >
             <Link
               href="/fahrzeuge/cobra"
-              className="group inline-flex items-center gap-2 rounded-full bg-cn-red px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-cn-red-light hover:shadow-xl hover:shadow-cn-red/25 sm:px-8 sm:py-3.5 sm:text-xs"
+              className="group inline-flex items-center gap-2 rounded-full bg-cn-red px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-cn-red-light hover:shadow-xl hover:shadow-cn-red/25 sm:px-7 sm:py-3.5 sm:text-xs"
             >
               Entdecken
               <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="/kontakt"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 sm:px-8 sm:py-3.5 sm:text-xs"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 sm:px-7 sm:py-3.5 sm:text-xs"
             >
               Kontakt
             </Link>
@@ -137,34 +129,30 @@ export function HeroSection() {
 
           {/* Divider + Stats */}
           <motion.div
-            className="mt-7 border-t border-white/10 pt-6 sm:mt-9 sm:pt-7 lg:mt-10 lg:pt-8"
+            className="mt-7 border-t border-white/10 pt-5 sm:mt-8 sm:pt-6 lg:mt-10 lg:pt-7"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.55 }}
           >
-            <div className="flex justify-between">
+            <div className="flex justify-between max-w-2xl">
               {[
-                { value: "30+", label: "Jahre Erfahrung" },
-                { value: "170+", label: "Cobras gebaut" },
+                { value: "30+", label: "Jahre" },
+                { value: "170+", label: "Cobras" },
                 { value: "1500", label: "PS Prüfstand" },
-                { value: "900", label: "PS Cobra RS6" },
+                { value: "900", label: "PS RS6" },
               ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div
-                    className="font-bold text-white"
-                    style={{ fontSize: "clamp(1.25rem, 2.5vw, 2.5rem)" }}
-                  >
+                <div key={stat.label} className="text-center sm:text-left">
+                  <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">
                     {stat.value}
                   </div>
-                  <div className="mt-1 text-[7px] uppercase tracking-[0.14em] text-white/35 sm:text-[10px] lg:text-xs lg:tracking-[0.08em]">
+                  <div className="mt-0.5 text-[8px] uppercase tracking-[0.1em] text-white/35 sm:text-[10px] lg:text-xs">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Scroll indicator */}
-            <div className="mt-5 flex justify-center sm:mt-7">
+            <div className="mt-4 flex justify-center sm:mt-5">
               <button
                 onClick={() => handleScroll("#fahrzeuge")}
                 className="animate-bounce"
