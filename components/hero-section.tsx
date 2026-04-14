@@ -83,13 +83,14 @@ export function HeroSection() {
           {/* Headline */}
           <motion.h1
             className="mb-3 text-[2.5rem] font-bold leading-[1.05] text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+            style={{ fontVariantLigatures: "none" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Pure Kraft.
+            Pure Kra<span style={{ letterSpacing: "0.03em" }}>f</span>t.
             <br />
-            <span className="text-gradient">Perfekte Technik.</span>
+            <span className="text-gradient">Per<span style={{ letterSpacing: "0.03em" }}>f</span>ekte Technik.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -131,36 +132,39 @@ export function HeroSection() {
 
           {/* Stats */}
           <motion.div
-            className="mx-auto mt-5 grid max-w-lg grid-cols-4 gap-4 border-t border-white/10 pt-5 sm:mt-8 sm:max-w-none sm:gap-8 sm:pt-8 lg:gap-12"
+            className="border-t border-white/10 pt-5 sm:pt-8"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.55 }}
           >
-            {[
-              { value: "30+", label: "Jahre" },
-              { value: "170+", label: "Cobras" },
-              { value: "1500", label: "PS Prüfstand" },
-              { value: "900", label: "PS RS6" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center sm:text-left">
-                <div className="text-xl font-bold tracking-normal text-white sm:text-3xl lg:text-4xl">
-                  {stat.value}
+            <div className="flex items-start justify-between">
+              {[
+                { value: "30+", label: "Jahre" },
+                { value: "170+", label: "Cobras" },
+                { value: "1500", label: "PS Prüfstand" },
+                { value: "900", label: "PS RS6" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-xl font-bold text-white sm:text-3xl lg:text-4xl">
+                    {stat.value}
+                  </div>
+                  <div className="mt-0.5 text-[8px] uppercase tracking-wider text-white/40 sm:mt-1 sm:text-xs sm:normal-case sm:tracking-normal">{stat.label}</div>
                 </div>
-                <div className="mt-0.5 text-[8px] uppercase tracking-wider text-white/40 sm:mt-1 sm:text-xs sm:normal-case sm:tracking-normal">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* Scroll Indicator - centered below stats */}
+            <div className="mt-4 flex justify-center sm:mt-6">
+              <button
+                onClick={() => handleScroll("#fahrzeuge")}
+                className="animate-bounce"
+                aria-label="Nach unten scrollen"
+              >
+                <ChevronDown className="size-5 text-white/40 sm:size-6" />
+              </button>
+            </div>
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Scroll Indicator - pure CSS animation instead of JS */}
-      <button
-        onClick={() => handleScroll("#fahrzeuge")}
-        className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 animate-bounce sm:bottom-8"
-        aria-label="Nach unten scrollen"
-      >
-        <ChevronDown className="size-5 text-white/40 sm:size-6" />
-      </button>
     </section>
   )
 }

@@ -98,8 +98,7 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #b91c1c #0a0a0a;
+  scrollbar-width: none;
 }
 
 @layer base {
