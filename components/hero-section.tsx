@@ -64,7 +64,7 @@ export function HeroSection() {
 
       {/* Content - split top/bottom */}
       <motion.div
-        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-14 pt-24 sm:px-5 sm:pb-20 sm:pt-32 lg:px-8 lg:pt-36"
+        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-20 pt-24 sm:px-5 sm:pb-24 sm:pt-32 lg:px-8 lg:pt-36"
         style={{ opacity }}
       >
         {/* TOP: Badge + Headline + Description */}
@@ -131,7 +131,7 @@ export function HeroSection() {
 
           {/* Stats */}
           <motion.div
-            className="mt-5 grid grid-cols-4 border-t border-white/10 pt-5 sm:mt-8 sm:gap-6 sm:pt-8"
+            className="mx-auto mt-5 grid max-w-lg grid-cols-4 gap-4 border-t border-white/10 pt-5 sm:mt-8 sm:max-w-none sm:gap-8 sm:pt-8 lg:gap-12"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.55 }}
