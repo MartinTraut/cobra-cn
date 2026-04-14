@@ -60,14 +60,13 @@ export function HeroSection() {
 
       <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-cn-red/10 blur-[120px]" />
 
-      {/* Content */}
+      {/* Content - alles in einer Spalte, justify-between drückt unten/oben auseinander */}
       <motion.div
-        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-12 pt-28 sm:px-8 sm:pb-16 sm:pt-32 lg:px-10 lg:pb-20 lg:pt-36"
+        className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6 pb-6 pt-28 sm:px-8 sm:pb-10 sm:pt-32 lg:px-10 lg:pb-12 lg:pt-36"
         style={{ opacity }}
       >
-        {/* TOP */}
+        {/* ── TOP: Badge + Headline + Description ── */}
         <div className="max-w-3xl">
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,9 +77,9 @@ export function HeroSection() {
             Seit über 30 Jahren Motorsport-Exzellenz
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             className="mb-5 text-4xl font-bold leading-[1.08] text-white sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{ fontFeatureSettings: "'liga' 0, 'clig' 0" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -90,7 +89,6 @@ export function HeroSection() {
             <span className="text-gradient">Perfekte Technik.</span>
           </motion.h1>
 
-          {/* Description */}
           <motion.p
             className="max-w-md text-[15px] leading-relaxed text-white/55 sm:max-w-lg sm:text-base lg:max-w-xl lg:text-lg"
             initial={{ opacity: 0, y: 12 }}
@@ -103,11 +101,11 @@ export function HeroSection() {
           </motion.p>
         </div>
 
-        {/* BOTTOM */}
+        {/* ── BOTTOM: CTAs + Linie + Stats (volle Breite) ── */}
         <div>
           {/* CTAs */}
           <motion.div
-            className="flex items-center gap-3 sm:gap-4"
+            className="mb-8 flex items-center gap-3 sm:mb-10 sm:gap-4 lg:mb-12"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.45 }}
@@ -127,39 +125,52 @@ export function HeroSection() {
             </Link>
           </motion.div>
 
-          {/* Divider + Stats */}
+          {/* Linie */}
           <motion.div
-            className="mt-7 border-t border-white/10 pt-5 sm:mt-8 sm:pt-6 lg:mt-10 lg:pt-7"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="border-t border-white/10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.55 }}
+          />
+
+          {/* Stats - volle Breite, gleichmäßig verteilt */}
+          <motion.div
+            className="flex w-full items-center justify-between pt-5 sm:pt-6 lg:pt-7"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.6 }}
           >
-            <div className="flex justify-between max-w-2xl">
-              {[
-                { value: "30+", label: "Jahre" },
-                { value: "170+", label: "Cobras" },
-                { value: "1500", label: "PS Prüfstand" },
-                { value: "900", label: "PS RS6" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center sm:text-left">
-                  <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">
-                    {stat.value}
-                  </div>
-                  <div className="mt-0.5 text-[8px] uppercase tracking-[0.1em] text-white/35 sm:text-[10px] lg:text-xs">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+            {/* 30+ links */}
+            <div className="text-center">
+              <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">30+</div>
+              <div className="mt-0.5 text-[7px] uppercase tracking-[0.12em] text-white/35 sm:text-[9px] lg:text-[11px]">Jahre</div>
             </div>
 
-            <div className="mt-4 flex justify-center sm:mt-5">
-              <button
-                onClick={() => handleScroll("#fahrzeuge")}
-                className="animate-bounce"
-                aria-label="Nach unten scrollen"
-              >
-                <ChevronDown className="size-4 text-white/30 sm:size-5" />
-              </button>
+            {/* 170+ */}
+            <div className="text-center">
+              <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">170+</div>
+              <div className="mt-0.5 text-[7px] uppercase tracking-[0.12em] text-white/35 sm:text-[9px] lg:text-[11px]">Cobras</div>
+            </div>
+
+            {/* Scroll-Pfeil mittig */}
+            <button
+              onClick={() => handleScroll("#fahrzeuge")}
+              className="animate-bounce"
+              aria-label="Nach unten scrollen"
+            >
+              <ChevronDown className="size-5 text-white/30 sm:size-6" />
+            </button>
+
+            {/* 1500 */}
+            <div className="text-center">
+              <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">1500</div>
+              <div className="mt-0.5 text-[7px] uppercase tracking-[0.12em] text-white/35 sm:text-[9px] lg:text-[11px]">PS Prüfstand</div>
+            </div>
+
+            {/* 900 rechts */}
+            <div className="text-center">
+              <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">900</div>
+              <div className="mt-0.5 text-[7px] uppercase tracking-[0.12em] text-white/35 sm:text-[9px] lg:text-[11px]">PS RS6</div>
             </div>
           </motion.div>
         </div>
