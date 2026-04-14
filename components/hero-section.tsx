@@ -82,15 +82,15 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            className="mb-3 text-[2.5rem] font-bold leading-[1.05] text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-            style={{ fontVariantLigatures: "none" }}
+            className="mb-3 text-[2.5rem] font-bold leading-[1.05] tracking-[0.02em] text-white sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+            style={{ fontVariantLigatures: "none", fontKerning: "none" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Pure Kra<span style={{ letterSpacing: "0.03em" }}>f</span>t.
+            Pure Kraft.
             <br />
-            <span className="text-gradient">Per<span style={{ letterSpacing: "0.03em" }}>f</span>ekte Technik.</span>
+            <span className="text-gradient">Perfekte Technik.</span>
           </motion.h1>
 
           {/* Subheadline */}
