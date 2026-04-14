@@ -139,7 +139,7 @@ export function Navigation() {
                       {active && (
                         <motion.div
                           layoutId="nav-indicator"
-                          className="absolute bottom-0 left-1/2 h-[2px] w-5 -translate-x-1/2 bg-cn-red"
+                          className="absolute bottom-0 left-1/2 h-[2px] w-full -translate-x-1/2 bg-cn-red"
                           transition={{
                             type: "spring",
                             stiffness: 380,
@@ -197,7 +197,7 @@ export function Navigation() {
                   {active && !hasChildren && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute bottom-0 left-1/2 h-[2px] w-5 -translate-x-1/2 bg-cn-red"
+                      className="absolute bottom-0 left-1/2 h-[2px] w-full -translate-x-1/2 bg-cn-red"
                       transition={{
                         type: "spring",
                         stiffness: 380,
