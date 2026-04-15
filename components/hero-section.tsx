@@ -13,8 +13,16 @@ export function HeroSection() {
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768)
     check()
-    window.addEventListener("resize", check)
-    return () => window.removeEventListener("resize", check)
+    let timeout: ReturnType<typeof setTimeout>
+    const debouncedCheck = () => {
+      clearTimeout(timeout)
+      timeout = setTimeout(check, 150)
+    }
+    window.addEventListener("resize", debouncedCheck)
+    return () => {
+      clearTimeout(timeout)
+      window.removeEventListener("resize", debouncedCheck)
+    }
   }, [])
 
   const { scrollYProgress } = useScroll({
@@ -58,7 +66,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-cn-darker via-transparent to-black/30" />
       </motion.div>
 
-      <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-cn-red/10 blur-[120px]" />
+      <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-cn-red/10 blur-[80px]" style={{ transform: 'translateZ(0)' }} />
 
       {/* Content - alles in einer Spalte, justify-between drückt unten/oben auseinander */}
       <motion.div

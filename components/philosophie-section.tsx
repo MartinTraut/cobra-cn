@@ -69,7 +69,7 @@ export function PhilosophieSection() {
           {/* Image */}
           <ScrollReveal direction="left">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <motion.div className="absolute inset-0" style={{ scale: imgScale }}>
+              <motion.div className="absolute inset-0" style={{ scale: imgScale, willChange: "transform" }}>
                 <Image
                   src="https://www.cobra-cn.de/wp-content/uploads/2015/09/ELF_9990-1024x683.jpg"
                   alt="CN Racing Werkstatt – Cobra-Fertigung"
@@ -82,7 +82,7 @@ export function PhilosophieSection() {
 
               {/* Overlay badge */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md">
+                <div className="rounded-xl bg-black/80 p-4">
                   <p className="text-sm font-medium italic text-white/90">
                     &ldquo;Das Ziel war von Anfang an klar: die schnellste und
                     zuverlässigste Cobra mit neuester Technik zu entwickeln.&rdquo;

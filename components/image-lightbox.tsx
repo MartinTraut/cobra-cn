@@ -58,7 +58,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {index !== null && images[index] && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/97"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
             </motion.div>
 
             {images.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-4 py-2 text-xs text-white/60 backdrop-blur-md">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/15 px-4 py-2 text-xs text-white/60">
                 {index + 1} / {images.length}
               </div>
             )}

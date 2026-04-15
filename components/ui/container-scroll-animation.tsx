@@ -21,9 +21,15 @@ export const ContainerScroll = ({
       setIsMobile(window.innerWidth <= 768)
     }
     checkMobile()
-    window.addEventListener("resize", checkMobile)
+    let timeout: ReturnType<typeof setTimeout>
+    const debouncedCheck = () => {
+      clearTimeout(timeout)
+      timeout = setTimeout(checkMobile, 150)
+    }
+    window.addEventListener("resize", debouncedCheck)
     return () => {
-      window.removeEventListener("resize", checkMobile)
+      clearTimeout(timeout)
+      window.removeEventListener("resize", debouncedCheck)
     }
   }, [])
 
@@ -92,11 +98,9 @@ export const Card = ({
         rotateX: rotate,
         scale,
         willChange: "transform",
-        boxShadow: isMobile
-          ? "0 4px 20px rgba(0,0,0,0.4)"
-          : "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="-mt-6 mx-auto h-[24rem] w-full max-w-5xl overflow-hidden rounded-xl border border-white/15 bg-cn-darker shadow-2xl sm:h-[30rem] md:-mt-12 md:h-[40rem] md:rounded-3xl"
+      className="-mt-6 mx-auto h-[24rem] w-full max-w-5xl overflow-hidden rounded-xl border border-white/15 bg-cn-darker sm:h-[30rem] md:-mt-12 md:h-[40rem] md:rounded-3xl"
+      data-shadow={isMobile ? "light" : "heavy"}
     >
       <div className="h-full w-full overflow-hidden">{children}</div>
     </motion.div>

@@ -50,7 +50,16 @@ export function Navigation() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -93,7 +102,7 @@ export function Navigation() {
       <motion.header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "top-0 border-b border-white/5 bg-cn-darker/95 backdrop-blur-xl"
+            ? "top-0 border-b border-white/5 bg-cn-darker/97 backdrop-blur-md"
             : "top-0 bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -152,7 +161,7 @@ export function Navigation() {
                     <AnimatePresence>
                       {openDropdown === link.label && (
                         <motion.div
-                          className="absolute left-0 top-full mt-2 min-w-[280px] rounded-xl border border-white/10 bg-cn-darker/98 p-4 shadow-2xl backdrop-blur-xl"
+                          className="absolute left-0 top-full mt-2 min-w-[280px] rounded-xl border border-white/10 bg-cn-darker p-4 shadow-2xl"
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
@@ -237,7 +246,7 @@ export function Navigation() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col bg-cn-darker/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-cn-darker lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

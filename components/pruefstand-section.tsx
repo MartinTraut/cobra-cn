@@ -168,7 +168,7 @@ export function PruefstandSection() {
 
               {/* Floating Stats */}
               <motion.div
-                className="absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-cn-darker/90 p-5 backdrop-blur-md"
+                className="absolute -bottom-6 -left-6 rounded-xl border border-white/10 bg-cn-darker p-5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -182,7 +182,7 @@ export function PruefstandSection() {
               </motion.div>
 
               <motion.div
-                className="absolute -right-4 -top-4 rounded-xl border border-white/10 bg-cn-darker/90 p-4 backdrop-blur-md"
+                className="absolute -right-4 -top-4 rounded-xl border border-white/10 bg-cn-darker p-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

@@ -59,7 +59,7 @@ export function MotorsportSection() {
       {/* Large background text */}
       <motion.div
         className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[15vw] font-black uppercase leading-none tracking-normaler text-white/[0.02]"
-        style={{ x }}
+        style={{ x, willChange: "transform" }}
       >
         MOTORSPORT · RACING · SPEED ·
       </motion.div>
@@ -90,13 +90,11 @@ export function MotorsportSection() {
             <ScrollReveal delay={0.1}>
               <div className="grid grid-cols-2 gap-3">
                 {galleryImages.map((src, i) => (
-                  <motion.div
+                  <div
                     key={src}
                     className={`group relative overflow-hidden rounded-xl ${
                       i === 0 ? "col-span-2 aspect-[21/9]" : "aspect-[4/3]"
                     }`}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.4 }}
                   >
                     <Image
                       src={src}
@@ -110,7 +108,7 @@ export function MotorsportSection() {
                       }
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </ScrollReveal>

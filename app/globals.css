@@ -120,6 +120,13 @@ html {
   }
 }
 
+[data-shadow="light"] {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+[data-shadow="heavy"] {
+  box-shadow: 0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003;
+}
+
 ::selection {
   background: #b91c1c;
   color: #ffffff;
@@ -151,9 +158,9 @@ html {
   50% { transform: translateY(-10px); }
 }
 
-.animate-gradient { animation: gradient-shift 8s ease infinite; background-size: 200% 200%; }
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-gradient { animation: gradient-shift 8s ease infinite; background-size: 200% 200%; will-change: background-position; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; will-change: box-shadow; }
+.animate-float { animation: float 6s ease-in-out infinite; will-change: transform; }
 
 .text-gradient {
   background: linear-gradient(135deg, #ffffff 0%, #b91c1c 50%, #ffffff 100%);
@@ -161,7 +168,8 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 6s ease infinite;
+  will-change: background-position;
 }
 
 .hero-gradient {
@@ -176,9 +184,9 @@ html {
 }
 
 .glass {
-  background: rgba(17, 17, 17, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(17, 17, 17, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -189,4 +197,6 @@ html {
   opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   pointer-events: none;
+  will-change: auto;
+  transform: translateZ(0);
 }
